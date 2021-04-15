@@ -95,6 +95,12 @@ function findById(scheme_id) { // EXERCISE B
         "steps": []
       }
   */
+
+      return db("schemes as sc")
+        .leftJoin("steps as st", "sc.scheme_id", "st.scheme_id")
+        .where("sc.scheme_id", scheme_id)
+        .orderBy("st.step_number", "asc")
+
 }
 
 function findSteps(scheme_id) { // EXERCISE C

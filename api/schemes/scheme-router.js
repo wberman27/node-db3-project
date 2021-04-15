@@ -52,10 +52,10 @@ router.get('/', (req, res, next) => {
     ]
   }
 */
-router.get('/:scheme_id', checkSchemeId, (req, res, next) => {
-  const { scheme_id } = req.params
+router.get('/:id', checkSchemeId, (req, res, next) => {
+  const { id } = req.params
 
-  Schemes.findById(scheme_id)
+  Schemes.findById(id)
     .then(scheme => {
       res.json(scheme)
     })
